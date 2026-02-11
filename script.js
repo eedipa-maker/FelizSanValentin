@@ -1,10 +1,12 @@
-function abrir(){
-    const heart = document.getElementById("heart");
-    const contenido = document.getElementById("contenido");
+const music = document.getElementById("bgMusic");
 
-    heart.classList.add("abrirCorazon");
+function activarMusica(){
+    music.muted = false;
+    music.volume = 0.3;
+    music.play();
 
-    setTimeout(()=>{
-        contenido.classList.add("mostrar");
-    },900);
+    // Solo ejecutar una vez
+    document.removeEventListener("click", activarMusica);
 }
+
+document.addEventListener("click", activarMusica);
