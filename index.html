@@ -2,23 +2,39 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Invitación</title>
+<title>San Valentín ❤️</title>
 <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<div class="overlay">
-    <div class="card">
-        <h1>¡Estás invitado!</h1>
-        <p>Haz clic en cualquier parte para comenzar</p>
-    </div>
-</div>
-
-<!-- Música -->
-<audio id="bgMusic" autoplay loop muted>
-    <source src="Magia.mp3" type="audio/mpeg">
+<!-- MUSICA -->
+<audio id="musica" loop>
+  <source src="Magia.mp3" type="audio/mpeg">
 </audio>
+
+<div class="contenedor">
+
+    <!-- CORAZON -->
+    <div id="corazon" class="corazon">
+        <h1>¿Quieres ser mi San Valentín?</h1>
+    </div>
+
+    <!-- BOTONES -->
+    <div id="botones" class="botones">
+        <button onclick="aceptar()">Sí 💖</button>
+        <button onclick="aceptar()">Obvio que sí 😍</button>
+    </div>
+
+    <!-- CONTENIDO FINAL -->
+    <div id="final" class="final oculto">
+        <img src="foto.jpg" class="foto">
+        <p>
+            Gracias por estar conmigo, soy la persona más afortunada  
+            por tenerte a mi lado. Te amo ♥️
+        </p>
+    </div>
+
+</div>
 
 <script src="script.js"></script>
 </body>
