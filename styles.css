@@ -1,0 +1,138 @@
+body{
+    margin:0;
+    height:100vh;
+    background:#f06b88;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow:hidden;
+}
+
+.contenedor{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CORAZON */
+.heart{
+    width:220px;
+    height:200px;
+    background:#ff1f55;
+    position:relative;
+    transform:rotate(-45deg);
+    cursor:pointer;
+    animation: latido 1.5s infinite;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1;
+}
+
+.heart::before,
+.heart::after{
+    content:"";
+    width:220px;
+    height:200px;
+    background:#ff1f55;
+    border-radius:50%;
+    position:absolute;
+    z-index:0;
+}
+
+.heart::before{ top:-110px; left:0; }
+.heart::after{ left:110px; top:0; }
+
+@keyframes latido{
+    0%{ transform:rotate(-45deg) scale(1); }
+    50%{ transform:rotate(-45deg) scale(1.1); }
+    100%{ transform:rotate(-45deg) scale(1); }
+}
+
+/* TEXTO DENTRO DEL CORAZON */
+.texto{
+    position:absolute;
+    transform: rotate(45deg);
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
+    width:200px;
+    z-index:5;
+    pointer-events:none;
+}
+
+/* BOTONES */
+.botones{
+    margin-top:40px;
+}
+
+button{
+    padding:15px 25px;
+    margin:10px;
+    border:none;
+    border-radius:15px;
+    font-size:18px;
+    cursor:pointer;
+    background:white;
+    color:#ff1f55;
+    font-weight:bold;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+/* CONTENIDO FINAL */
+.contenido{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#f06b88;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    pointer-events:none;
+    transition:1.2s;
+}
+
+.contenido.mostrar{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.foto{
+    width:280px;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(0,0,0,0.3);
+    animation: aparecer 1.5s;
+}
+
+.mensaje{
+    margin-top:25px;
+    font-size:22px;
+    color:white;
+    text-align:center;
+    max-width:350px;
+    animation: aparecer 2s;
+}
+
+@keyframes aparecer{
+    from{ transform:scale(0); opacity:0; }
+    to{ transform:scale(1); opacity:1; }
+}
+
+/* ANIMACION CORAZON ABRIENDOSE */
+.abrirCorazon{
+    animation: abrir 1s forwards;
+}
+
+@keyframes abrir{
+    from{ transform:rotate(-45deg) scale(1); opacity:1; }
+    to{ transform:rotate(-45deg) scale(3); opacity:0; }
+}
