@@ -1,12 +1,23 @@
-const music = document.getElementById("bgMusic");
+const musica = document.getElementById("musica");
+let musicaIniciada = false;
 
-function activarMusica(){
-    music.muted = false;
-    music.volume = 0.3;
-    music.play();
+/* 🎵 reproducir música al PRIMER clic en pantalla */
+document.addEventListener("click", () => {
+    if(!musicaIniciada){
+        musica.play();
+        musicaIniciada = true;
+    }
+});
 
-    // Solo ejecutar una vez
-    document.removeEventListener("click", activarMusica);
+function aceptar(){
+    const corazon = document.getElementById("corazon");
+    const botones = document.getElementById("botones");
+    const final = document.getElementById("final");
+
+    corazon.classList.add("abrir");
+    botones.style.display = "none";
+
+    setTimeout(()=>{
+        final.classList.remove("oculto");
+    },800);
 }
-
-document.addEventListener("click", activarMusica);
